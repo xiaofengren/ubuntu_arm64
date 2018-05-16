@@ -1,11 +1,7 @@
 FROM ubuntu:18.04
-MAINTAINER Shengzhou Liu <shengzhou.liu@nxp.com>
 
-ARG http_proxy
-ENV http_proxy $http_proxy
 ENV DEBIAN_FRONTEND noninteractive
 ENV DEBCONF_NONINTERACTIVE_SEEN true
-RUN echo "Acquire::http::proxy \"$http_proxy/\";" | tee -a /etc/apt/apt.conf
 RUN apt-get update && apt-get install -y \
         u-boot-tools device-tree-compiler autoconf automake dh-autoreconf libssl-dev zip \
         openssl python-pip flex bison bc git gcc vim ethtool wget ftp make makedev tclsh \
